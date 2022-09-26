@@ -5,7 +5,7 @@
 import pytest
 
 
-from np_circular_buffer import np_circular_buffer
+from np_image_buffer import np_circular_buffer
 
 
 @pytest.fixture

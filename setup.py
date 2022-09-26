@@ -41,7 +41,7 @@ setup(
     packages=find_packages(include=['nic', 'nic.*']),
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/jacopoabramo/nic',
+    url='https://github.com/jacopoabramo/np_image_buffer',
     version='0.1.0',
     zip_safe=False,
 )
