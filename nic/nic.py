@@ -84,7 +84,7 @@ class ImageBuffer(Sequence):
     #   extend
     # --------------------------------------------------------------------------
 
-    def extend(self, values: np.ndarray):
+    def extend(self, values: np.ndarray) -> None:
         """Extend the buffer with a list of images.
         """
         lv = len(values)
@@ -114,12 +114,8 @@ class ImageBuffer(Sequence):
         self.__tail = max(self.__tail, self.__head - self.__full_capacity)
         self._fix_indices()
 
-    def extendleft(self, values):
+    def extendleft(self, values) -> None:
         """Extend the ring buffer with a list of values from the left side.
-        rb = RingBuffer(3, dtype=int)  # --> rb = []
-        rb.extendleft([1])             # --> rb = [1]
-        rb.extendleft([3, 2])          # --> rb = [3, 2, 1]
-        rb.extendleft([7, 6, 5, 4])    # --> rb = [7, 6, 5]
         """
         lv = len(values)
         if len(self) + lv > self.__full_capacity:
