@@ -48,9 +48,9 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint/flake8: ## check style with flake8
-	flake8 nic tests
+	flake8 np_image_buffer tests
 lint/black: ## check style with black
-	black --check nic tests
+	black --check np_image_buffer tests
 
 lint: lint/flake8 lint/black ## check style
 
@@ -61,15 +61,15 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source nic -m pytest
+	coverage run --source np_image_buffer -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/nic.rst
+	rm -f docs/np_image_buffer.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ nic
+	sphinx-apidoc -o docs/ np_image_buffer
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

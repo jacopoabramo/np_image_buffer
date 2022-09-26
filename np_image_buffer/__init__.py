@@ -1,4 +1,4 @@
-"""Top-level package for NumPy Image Circular buffer (NIC)."""
+"""Top-level package for NumPy image circular buffer."""
 from np_image_buffer.np_image_buffer import ImageBuffer
 
 __author__ = """Jacopo Abramo"""

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `nic` package."""
+"""Tests for `np_image_buffer` package."""
 
 import pytest
 

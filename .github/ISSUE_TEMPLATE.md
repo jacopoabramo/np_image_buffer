@@ -1,4 +1,4 @@
-* NumPy Image Circular buffer (NIC) version:
+* NumPy image circular buffer version:
 * Python version:
 * Operating System:
 

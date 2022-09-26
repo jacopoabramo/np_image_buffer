@@ -1,1 +1,1 @@
-"""Unit test package for nic."""
+"""Unit test package for np_image_buffer."""

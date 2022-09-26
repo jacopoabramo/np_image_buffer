@@ -7,10 +7,10 @@ NumPy image circular buffer
         :target: https://pypi.python.org/pypi/np_image_buffer
 
 .. image:: https://img.shields.io/travis/jacopoabramo/np_image_buffer.svg
-        :target: https://travis-ci.com/jacopoabramo/nic
+        :target: https://travis-ci.com/jacopoabramo/np_image_buffer
 
 .. image:: https://readthedocs.org/projects/np_image_buffer/badge/?version=latest
-        :target: https://nic.readthedocs.io/en/latest/?version=latest
+        :target: https://np_image_buffer.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
 
 
