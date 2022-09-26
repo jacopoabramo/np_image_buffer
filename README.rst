@@ -1,21 +1,21 @@
 =================================
-NumPy Image Circular buffer (NIC)
+NumPy image circular buffer
 =================================
 
 
-.. image:: https://img.shields.io/pypi/v/nic.svg
-        :target: https://pypi.python.org/pypi/nic
+.. image:: https://img.shields.io/pypi/v/np_circular_buffer.svg
+        :target: https://pypi.python.org/pypi/np_circular_buffer
 
-.. image:: https://img.shields.io/travis/jacopoabramo/nic.svg
+.. image:: https://img.shields.io/travis/jacopoabramo/np_circular_buffer.svg
         :target: https://travis-ci.com/jacopoabramo/nic
 
-.. image:: https://readthedocs.org/projects/nic/badge/?version=latest
+.. image:: https://readthedocs.org/projects/np_circular_buffer/badge/?version=latest
         :target: https://nic.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/jacopoabramo/nic/shield.svg
-     :target: https://pyup.io/repos/github/jacopoabramo/nic/
+.. image:: https://pyup.io/repos/github/jacopoabramo/np_circular_buffer/shield.svg
+     :target: https://pyup.io/repos/github/jacopoabramo/np_circular_buffer/
      :alt: Updates
 
 

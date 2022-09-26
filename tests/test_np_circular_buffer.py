@@ -5,7 +5,7 @@
 import pytest
 
 
-from nic import nic
+from np_circular_buffer import np_circular_buffer
 
 
 @pytest.fixture
