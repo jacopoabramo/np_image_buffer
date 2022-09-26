@@ -22,16 +22,6 @@ NumPy image circular buffer
 
 A NumPy circular buffer for fast image storing and indexing. The project inherits the concepts from Eric Wieser's original ring buffer (https://github.com/eric-wieser/numpy_ringbuffer) and Dennis van Gils' DvG_RingBuffer (https://github.com/Dennis-van-Gils/python-dvg-ringbuffer)
 
-
-* Free software: GNU General Public License v3
-* Documentation: https://nic.readthedocs.io.
-
-
-Features
---------
-
-* TODO
-
 Credits
 -------
 
