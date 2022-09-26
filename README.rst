@@ -20,7 +20,7 @@ NumPy Image Circular buffer (NIC)
 
 
 
-A NumPy circular buffer for fast image storing and indexing.
+A NumPy circular buffer for fast image storing and indexing. The project inherits the concepts from [Eric Wieser's ring buffer](https://github.com/eric-wieser/numpy_ringbuffer), and it is adapted for 2D numpy arrays.
 
 
 * Free software: GNU General Public License v3
