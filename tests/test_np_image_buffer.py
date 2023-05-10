@@ -2,23 +2,22 @@
 
 """Tests for `np_image_buffer` package."""
 
-import pytest
+import numpy as np
+from np_image_buffer import ImageBuffer
 
-
-from np_image_buffer import np_image_buffer
-
-
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_read_full_buffer():
+    
+    shape = (100, 256, 256)
+    data = np.random.randint(0, 256, size=shape, dtype=np.uint8)
+    buffer = ImageBuffer(shape, dtype=np.uint8)
+    
+    buffer.extend(data)
+    
+    assert len(buffer) == shape[0]
+    
+    buffer.extend(data)
+    readout = buffer.popall()
+    
+    assert len(readout) == shape[0]
+    assert len(buffer) == 0
+    
