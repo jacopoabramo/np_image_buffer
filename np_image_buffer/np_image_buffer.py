@@ -52,7 +52,7 @@ class ImageBuffer(Sequence):
         if self.full:
             if not self.__allow_overwrite:
                 raise IndexError(
-                    "Append to a full RingBuffer with overwrite disabled."
+                    "Append to a full ImageBuffer with overwrite disabled."
                 )
             if self.__full_capacity == 0:
                 return  # Mimick behavior of deque(maxlen=0)
@@ -69,7 +69,7 @@ class ImageBuffer(Sequence):
         if self.full:
             if not self.__allow_overwrite:
                 raise IndexError(
-                    "Append to a full RingBuffer with overwrite disabled."
+                    "Append to a full ImageBuffer with overwrite disabled."
                 )
             if self.__full_capacity == 0:
                 return  # Mimick behavior of deque(maxlen=0)
@@ -91,7 +91,7 @@ class ImageBuffer(Sequence):
         if len(self) + lv > self.__full_capacity:
             if not self.__allow_overwrite:
                 raise IndexError(
-                    "RingBuffer overflows, because overwrite is disabled."
+                    "ImageBuffer overflows, because overwrite is disabled."
                 )
             if self.__full_capacity == 0:
                 return  # Mimick behavior of deque(maxlen=0)
@@ -121,7 +121,7 @@ class ImageBuffer(Sequence):
         if len(self) + lv > self.__full_capacity:
             if not self.__allow_overwrite:
                 raise IndexError(
-                    "RingBuffer overflows, because overwrite is disabled."
+                    "ImageBuffer overflows, because overwrite is disabled."
                 )
             if self.__full_capacity == 0:
                 return  # Mimick behavior of deque(maxlen=0)
@@ -150,15 +150,23 @@ class ImageBuffer(Sequence):
 
     def pop(self):
         if len(self) == 0:
-            raise IndexError("Pop from an empty RingBuffer.")
+            raise IndexError("Pop from an empty ImageBuffer.")
         self.__unwrap_buffer_is_dirty = True
         self.__head -= 1
         self._fix_indices()
         return self.__array[self.__head % self.__full_capacity]
+    
+    def popall(self):
+        if len(self) == 0:
+            raise IndexError("Pop from an empty ImageBuffer.")
+        self.__unwrap_buffer_is_dirty = True
+        self.__head -= len(self)
+        self._fix_indices()
+        return self.__array
 
     def popleft(self):
         if len(self) == 0:
-            raise IndexError("Pop from an empty RingBuffer.")
+            raise IndexError("Pop from an empty ImageBuffer.")
         self.__unwrap_buffer_is_dirty = True
         res = self.__array[self.__tail]
         self.__tail += 1
@@ -290,11 +298,11 @@ class ImageBuffer(Sequence):
         item_arr = np.asarray(item)
 
         if not issubclass(item_arr.dtype.type, np.integer):
-            raise TypeError("RingBuffer indices must be integers.")
+            raise TypeError("ImageBuffer indices must be integers.")
 
         if len(self) == 0:
             raise IndexError(
-                "RingBuffer list index out of range. The RingBuffer has "
+                "ImageBuffer list index out of range. The ImageBuffer has "
                 "length 0."
             )
 
@@ -303,7 +311,7 @@ class ImageBuffer(Sequence):
             # Check for `List index out of range`
             if item_arr < -len(self) or item_arr >= len(self):
                 raise IndexError(
-                    "RingBuffer list index %s out of range. The RingBuffer "
+                    "ImageBuffer list index %s out of range. The ImageBuffer "
                     "has length %s." % (item_arr, len(self))
                 )
 
@@ -320,7 +328,7 @@ class ImageBuffer(Sequence):
                 idx_over = item_arr[np.where(item_arr >= len(self))]
                 idx_oor = np.sort(np.concatenate((idx_under, idx_over)))
                 raise IndexError(
-                    "RingBuffer list indices %s out of range. The RingBuffer "
+                    "ImageBuffer list indices %s out of range. The ImageBuffer "
                     "has length %s." % (idx_oor, len(self))
                 )
             idx_neg = np.where(item_arr < 0)
@@ -343,4 +351,4 @@ class ImageBuffer(Sequence):
             return iter(self._unwrap())
 
     def __repr__(self):
-        return "<RingBuffer of {!r}>".format(np.asarray(self))
+        return "<ImageBuffer of {!r}>".format(np.asarray(self))
